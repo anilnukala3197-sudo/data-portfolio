@@ -1,0 +1,1114 @@
+<title>Anil Nukala — Data Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<style>
+/* ── Highlight.js base theme (inlined, dark surface) ── */
+.hljs{display:block;overflow-x:auto;padding:0;background:transparent;color:#abb2bf}
+.hljs-comment,.hljs-quote{color:#636d83;font-style:italic}
+.hljs-keyword,.hljs-selector-tag,.hljs-built_in,.hljs-name,.hljs-tag{color:#e07b39}
+.hljs-string,.hljs-title,.hljs-section,.hljs-attribute,.hljs-literal,.hljs-template-tag,.hljs-template-variable,.hljs-type,.hljs-addition{color:#a8d9a8}
+.hljs-deletion,.hljs-selector-pseudo{color:#e06c75}
+.hljs-regexp,.hljs-symbol,.hljs-variable,.hljs-template-variable,.hljs-link,.hljs-selector-attr{color:#d19a66}
+.hljs-number{color:#c678dd}
+.hljs-function,.hljs-params{color:#61afef}
+.hljs-meta{color:#3d7bf5}
+
+/* ── Design tokens ── */
+:root {
+  --bg:           #F4F7FC;
+  --surface:      #FFFFFF;
+  --surface-2:    #EDF1F9;
+  --text:         #0E1929;
+  --text-muted:   #5A6880;
+  --text-faint:   #8A97AA;
+  --accent:       #E07B39;
+  --accent-dim:   #F3DCC8;
+  --blue:         #3D7BF5;
+  --blue-dim:     #DBE6FF;
+  --teal:         #2BA899;
+  --teal-dim:     #D2F0EE;
+  --border:       #DCE4F0;
+  --border-strong:#B8C8DE;
+  --code-bg:      #141B2B;
+  --code-border:  #1E2B42;
+  --radius:       10px;
+  --shadow:       0 1px 3px rgba(14,25,41,.06), 0 4px 12px rgba(14,25,41,.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:           #0B0F1A;
+    --surface:      #141B2B;
+    --surface-2:    #1A2234;
+    --text:         #E8EEF8;
+    --text-muted:   #8FA3C0;
+    --text-faint:   #4F6480;
+    --accent:       #E07B39;
+    --accent-dim:   #2A1C10;
+    --blue:         #5B94F8;
+    --blue-dim:     #101C38;
+    --teal:         #3CC4BB;
+    --teal-dim:     #0D2422;
+    --border:       #1E2B42;
+    --border-strong:#2C3E58;
+    --code-bg:      #0D1220;
+    --code-border:  #1A2539;
+    --shadow:       0 1px 3px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.2);
+  }
+}
+:root[data-theme="dark"] {
+  --bg:           #0B0F1A;
+  --surface:      #141B2B;
+  --surface-2:    #1A2234;
+  --text:         #E8EEF8;
+  --text-muted:   #8FA3C0;
+  --text-faint:   #4F6480;
+  --accent:       #E07B39;
+  --accent-dim:   #2A1C10;
+  --blue:         #5B94F8;
+  --blue-dim:     #101C38;
+  --teal:         #3CC4BB;
+  --teal-dim:     #0D2422;
+  --border:       #1E2B42;
+  --border-strong:#2C3E58;
+  --code-bg:      #0D1220;
+  --code-border:  #1A2539;
+  --shadow:       0 1px 3px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.2);
+}
+
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* ── Layout container ── */
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Header ── */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.name-block .name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -.02em;
+  color: var(--text);
+}
+.name-block .role {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: .01em;
+}
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.header-links a {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color .15s;
+}
+.header-links a:hover { color: var(--accent); }
+.header-links .btn-contact {
+  background: var(--accent);
+  color: #fff;
+  padding: .38rem .9rem;
+  border-radius: 6px;
+  font-size: .8rem;
+  font-weight: 600;
+  transition: opacity .15s;
+}
+.header-links .btn-contact:hover { opacity: .85; }
+
+/* ── Intro strip ── */
+.intro {
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.intro-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.intro-left .eyebrow {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .75rem;
+}
+.intro-left h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.15;
+  color: var(--text);
+  text-wrap: balance;
+  margin-bottom: 1rem;
+}
+.intro-left h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+.intro-left p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 44ch;
+}
+.intro-right {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  padding: .65rem .9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.stat-row .num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  min-width: 3.2rem;
+}
+.stat-row .label {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .82rem;
+  color: var(--text-muted);
+}
+.stat-row .dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.dot-sql { background: var(--accent); }
+.dot-python { background: var(--blue); }
+.dot-snowflake { background: var(--teal); }
+.dot-bi { background: #9B72F5; }
+
+/* ── Skills ── */
+.skills-bar {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.skills-bar .wrap {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.skill-pill {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .75rem;
+  font-weight: 500;
+  padding: .3rem .7rem;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.skill-pill.core {
+  background: var(--accent-dim);
+  border-color: transparent;
+  color: var(--accent);
+}
+
+/* ── Projects ── */
+.projects-section {
+  padding: 3rem 0 4rem;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.section-header h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+.section-header .count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem;
+  color: var(--text-faint);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.projects-grid .card-wide {
+  grid-column: 1 / -1;
+}
+
+/* ── Project card ── */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: border-color .15s, box-shadow .15s;
+}
+.project-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 2px 6px rgba(14,25,41,.08), 0 8px 24px rgba(14,25,41,.08);
+}
+
+.card-header {
+  padding: 1.25rem 1.5rem .9rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.card-badge {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .25rem .6rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: .15rem;
+}
+.badge-sql { background: var(--accent-dim); color: var(--accent); }
+.badge-python { background: var(--blue-dim); color: var(--blue); }
+.badge-snowflake { background: var(--teal-dim); color: var(--teal); }
+
+.card-title-block { flex: 1; }
+.card-title-block h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: .3rem;
+}
+.card-title-block p {
+  font-size: .88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ── Code block inside card ── */
+.card-code {
+  background: var(--code-bg);
+  border-top: 1px solid var(--code-border);
+  overflow: hidden;
+}
+.code-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+  border-bottom: 1px solid var(--code-border);
+}
+.code-bar .file-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem;
+  color: #536175;
+}
+.code-dots { display: flex; gap: .35rem; }
+.code-dots span {
+  width: 9px; height: 9px; border-radius: 50%;
+}
+.d1{background:#FF5F57;} .d2{background:#FEBC2E;} .d3{background:#28C840;}
+
+.code-content {
+  padding: 1rem 1.25rem 1.25rem;
+  overflow-x: auto;
+  max-height: 220px;
+  overflow-y: hidden;
+}
+.code-content pre {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem;
+  line-height: 1.7;
+  tab-size: 4;
+}
+
+/* expand toggle */
+.expand-btn {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  width: 100%;
+  padding: .55rem 1rem;
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--code-border);
+  color: #536175;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .72rem;
+  cursor: pointer;
+  text-align: left;
+  transition: color .12s, background .12s;
+}
+.expand-btn:hover { color: var(--accent); background: rgba(255,255,255,.03); }
+.expand-btn svg { flex-shrink: 0; transition: transform .2s; }
+.expand-btn.open svg { transform: rotate(180deg); }
+.card-code.expanded .code-content { max-height: 600px; overflow-y: auto; }
+
+/* ── Techniques tags ── */
+.card-footer {
+  padding: .75rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+.tech-tag {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .68rem;
+  font-weight: 500;
+  color: var(--text-faint);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: .18rem .55rem;
+  border-radius: 4px;
+}
+
+/* ── Snowflake section ── */
+.snowflake-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.sf-patterns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+.sf-pattern {
+  padding: 1.1rem 1.25rem;
+  border-right: 1px solid var(--border);
+}
+.sf-pattern:last-child { border-right: none; }
+.sf-pattern .sf-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: .3rem;
+}
+.sf-pattern p {
+  font-size: .8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Certifications ── */
+.certs-section {
+  padding: 0 0 3rem;
+}
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .9rem;
+}
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+.cert-card .cert-org {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: .3rem;
+}
+.cert-card .cert-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+/* ── Footer ── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  background: var(--surface);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.footer-inner span {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .78rem;
+  color: var(--text-faint);
+}
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+.footer-links a {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: .78rem;
+  color: var(--text-muted);
+  transition: color .12s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+  .intro-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid .card-wide { grid-column: auto; }
+  .sf-patterns { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: 1fr; }
+  .sf-pattern { border-right: none; border-bottom: 1px solid var(--border); }
+  .sf-pattern:last-child { border-bottom: none; }
+  .header-links .linkedin-link { display: none; }
+}
+</style>
+
+<!-- ─────── HEADER ─────── -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="name-block">
+      <div class="name">Anil Kumar Nukala</div>
+      <div class="role">Data Engineer &amp; BI Analyst · South Florida</div>
+    </div>
+    <nav class="header-links">
+      <a class="linkedin-link" href="https://www.linkedin.com/in/anil-kumar-nukala/" target="_blank">LinkedIn ↗</a>
+      <a class="linkedin-link" href="https://github.com/anilnukala3197-sudo" target="_blank">GitHub ↗</a>
+      <a href="mailto:anilnukala3197@gmail.com" class="btn-contact">anilnukala3197@gmail.com</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ─────── INTRO ─────── -->
+<section class="intro">
+  <div class="wrap intro-inner">
+    <div class="intro-left">
+      <div class="eyebrow">Data Portfolio</div>
+      <h1>SQL, Python &amp; <em>Snowflake</em> at production scale</h1>
+      <p>Six years building data pipelines, BI solutions, and automation systems across supply chain, healthcare, and financial domains. Every example below is drawn from real work — the code runs, the queries return results.</p>
+    </div>
+    <div class="intro-right">
+      <div class="stat-row">
+        <span class="num">6+</span>
+        <span class="label">years of hands-on data engineering &amp; analytics</span>
+        <span class="dot dot-sql"></span>
+      </div>
+      <div class="stat-row">
+        <span class="num">3</span>
+        <span class="label">cloud certifications · AWS, Azure, Power BI</span>
+        <span class="dot dot-bi"></span>
+      </div>
+      <div class="stat-row">
+        <span class="num">60%</span>
+        <span class="label">manual reconciliation time cut via ETL automation</span>
+        <span class="dot dot-python"></span>
+      </div>
+      <div class="stat-row">
+        <span class="num">MS</span>
+        <span class="label">Computer Science · University of Illinois Springfield</span>
+        <span class="dot dot-snowflake"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────── SKILLS BAR ─────── -->
+<div class="skills-bar">
+  <div class="wrap">
+    <span class="skill-pill core">SQL</span>
+    <span class="skill-pill core">Python</span>
+    <span class="skill-pill core">Snowflake</span>
+    <span class="skill-pill">Power BI</span>
+    <span class="skill-pill">Tableau</span>
+    <span class="skill-pill">Azure Data Factory</span>
+    <span class="skill-pill">Apache Airflow</span>
+    <span class="skill-pill">AWS</span>
+    <span class="skill-pill">SSRS</span>
+    <span class="skill-pill">pandas</span>
+    <span class="skill-pill">pyodbc</span>
+    <span class="skill-pill">openpyxl</span>
+    <span class="skill-pill">Oracle Data Integrator</span>
+    <span class="skill-pill">SQL Server</span>
+    <span class="skill-pill">ETL / ELT</span>
+    <span class="skill-pill">Data Quality</span>
+  </div>
+</div>
+
+<!-- ─────── PROJECTS ─────── -->
+<section class="projects-section">
+  <div class="wrap">
+
+    <div class="section-header">
+      <h2>SQL Projects</h2>
+      <span class="count">// 3 files</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Card 1: Inventory Anomaly Detection -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-badge badge-sql">SQL</span>
+          <div class="card-title-block">
+            <h3>Inventory Anomaly Detection</h3>
+            <p>Z-score statistical detection of sudden inventory fluctuations. Ranks anomalies by financial impact and surfaces items needing immediate procurement action.</p>
+          </div>
+        </div>
+        <div class="card-code" id="code1">
+          <div class="code-bar">
+            <div class="code-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <span class="file-name">inventory_anomaly_detection.sql</span>
+          </div>
+          <div class="code-content">
+            <pre><code class="language-sql">WITH rolling_stats AS (
+    SELECT
+        sku_id, warehouse_id, transaction_date,
+        daily_qty,
+        AVG(daily_qty) OVER (
+            PARTITION BY sku_id, warehouse_id
+            ORDER BY transaction_date
+            ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+        )                    AS rolling_7d_avg,
+        STDDEV(daily_qty) OVER (
+            PARTITION BY sku_id, warehouse_id
+            ORDER BY transaction_date
+            ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+        )                    AS rolling_7d_stddev,
+        LAG(daily_qty, 1) OVER (
+            PARTITION BY sku_id, warehouse_id
+            ORDER BY transaction_date
+        )                    AS prior_day_qty
+    FROM daily_inventory
+),
+anomaly_scoring AS (
+    SELECT *,
+        CASE
+          WHEN rolling_7d_stddev = 0 OR rolling_7d_stddev IS NULL THEN 0
+          ELSE ROUND(
+            (daily_qty - rolling_7d_avg) / rolling_7d_stddev, 2
+          )
+        END                  AS z_score
+    FROM rolling_stats
+)
+SELECT sku_id, anomaly_severity, z_score,
+       estimated_variance_usd
+FROM anomaly_flags
+WHERE transaction_date = CURRENT_DATE
+ORDER BY
+    CASE anomaly_severity
+      WHEN 'CRITICAL' THEN 1
+      WHEN 'HIGH'     THEN 2
+      WHEN 'MEDIUM'   THEN 3
+    END, estimated_variance_usd DESC;</code></pre>
+          </div>
+          <button class="expand-btn" onclick="toggleCode('code1',this)" aria-expanded="false">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Show full file
+          </button>
+        </div>
+        <div class="card-footer">
+          <span class="tech-tag">CTEs</span>
+          <span class="tech-tag">Window Functions</span>
+          <span class="tech-tag">Rolling Avg / Stddev</span>
+          <span class="tech-tag">LAG</span>
+          <span class="tech-tag">CASE severity</span>
+          <span class="tech-tag">ROW_NUMBER</span>
+          <span class="tech-tag">NTILE</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Supplier Scorecard -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-badge badge-sql">SQL</span>
+          <div class="card-title-block">
+            <h3>Supplier Performance Scorecard</h3>
+            <p>Multi-dimensional scorecard tracking OTD, fill rate, invoice accuracy, and defect rate. Weighted composite score with quarter-over-quarter trend.</p>
+          </div>
+        </div>
+        <div class="card-code" id="code2">
+          <div class="code-bar">
+            <div class="code-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <span class="file-name">supplier_performance_analysis.sql</span>
+          </div>
+          <div class="code-content">
+            <pre><code class="language-sql">-- Weighted composite score: OTD 35% | Fill 25%
+-- | Invoice Accuracy 20% | Quality 20%
+composite_score AS (
+    SELECT
+        d.supplier_id,
+        s.supplier_name,
+        d.on_time_delivery_pct,
+        d.fill_rate_pct,
+        i.avg_price_variance_pct,
+        q.defect_rate_pct,
+        cq.otd_pct_current_qtr
+          - COALESCE(pq.otd_pct_prior_qtr,
+                     cq.otd_pct_current_qtr) AS otd_qtr_delta,
+        ROUND(
+            (d.on_time_delivery_pct         * 0.35)
+          + (d.fill_rate_pct               * 0.25)
+          + (GREATEST(0, 100 - ABS(
+               i.avg_price_variance_pct)*10) * 0.20)
+          + (GREATEST(0, 100 - COALESCE(
+               q.defect_rate_pct,0)*5)       * 0.20)
+        , 1)                               AS composite_score
+    FROM delivery_perf d
+    JOIN procurement.suppliers s USING (supplier_id)
+    LEFT JOIN invoice_accuracy i USING (supplier_id)
+    LEFT JOIN quality_metrics  q USING (supplier_id)
+    LEFT JOIN current_qtr     cq USING (supplier_id)
+    LEFT JOIN prior_qtr       pq USING (supplier_id)
+)</code></pre>
+          </div>
+          <button class="expand-btn" onclick="toggleCode('code2',this)" aria-expanded="false">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Show full file
+          </button>
+        </div>
+        <div class="card-footer">
+          <span class="tech-tag">Multi-CTE pipeline</span>
+          <span class="tech-tag">Period-over-period</span>
+          <span class="tech-tag">Weighted score</span>
+          <span class="tech-tag">RANK within tier</span>
+          <span class="tech-tag">NULLIF</span>
+          <span class="tech-tag">NTILE quartile</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Financial Reconciliation (wide) -->
+      <div class="project-card card-wide">
+        <div class="card-header">
+          <span class="card-badge badge-sql">SQL</span>
+          <div class="card-title-block">
+            <h3>Multi-Source Financial Reconciliation</h3>
+            <p>Reconciles AP invoices between WMS and ERP General Ledger. Classifies discrepancy types — missing in either system, amount mismatch, line count variance, tax variance — and generates an audit-ready exception report ranked by severity and financial exposure.</p>
+          </div>
+        </div>
+        <div class="card-code" id="code3">
+          <div class="code-bar">
+            <div class="code-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <span class="file-name">financial_reconciliation.sql</span>
+          </div>
+          <div class="code-content">
+            <pre><code class="language-sql">-- FULL OUTER JOIN surfaces every discrepancy type in one pass
+reconciled AS (
+    SELECT
+        COALESCE(w.invoice_number, e.invoice_number) AS invoice_number,
+        COALESCE(w.vendor_id,      e.vendor_id)      AS vendor_id,
+        w.wms_gross_amount,
+        e.erp_gross_amount,
+        CASE WHEN w.invoice_number IS NOT NULL THEN 1 ELSE 0 END AS in_wms,
+        CASE WHEN e.invoice_number IS NOT NULL THEN 1 ELSE 0 END AS in_erp,
+        COALESCE(e.erp_gross_amount, 0)
+          - COALESCE(w.wms_gross_amount, 0)          AS gross_amount_variance
+    FROM wms_invoices  w
+    FULL OUTER JOIN erp_invoices e
+        ON  w.invoice_number = e.invoice_number
+        AND w.vendor_id      = e.vendor_id
+),
+classified AS (
+    SELECT r.*,
+        CASE
+          WHEN in_wms=1 AND in_erp=0              THEN 'MISSING_IN_ERP'
+          WHEN in_wms=0 AND in_erp=1              THEN 'MISSING_IN_WMS'
+          WHEN ABS(gross_amount_variance) > 0.01  THEN 'AMOUNT_MISMATCH'
+          WHEN line_count_variance != 0           THEN 'LINE_COUNT_MISMATCH'
+          WHEN ABS(tax_variance) > 0.01           THEN 'TAX_VARIANCE'
+          ELSE                                         'MATCHED'
+        END AS discrepancy_type,
+        CASE
+          WHEN ABS(gross_amount_variance) >= 10000 THEN 'HIGH'
+          WHEN ABS(gross_amount_variance) >= 1000  THEN 'MEDIUM'
+          WHEN ABS(gross_amount_variance) > 0.01   THEN 'LOW'
+          ELSE                                          'NONE'
+        END AS variance_severity
+    FROM reconciled r
+    LEFT JOIN erp.vendors v ON r.vendor_id = v.vendor_id
+)</code></pre>
+          </div>
+          <button class="expand-btn" onclick="toggleCode('code3',this)" aria-expanded="false">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Show full file
+          </button>
+        </div>
+        <div class="card-footer">
+          <span class="tech-tag">FULL OUTER JOIN</span>
+          <span class="tech-tag">COALESCE</span>
+          <span class="tech-tag">Discrepancy classification</span>
+          <span class="tech-tag">Vendor-level rollup</span>
+          <span class="tech-tag">Exception report</span>
+          <span class="tech-tag">Parameterized dates</span>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid SQL -->
+
+    <!-- ── Python section ── -->
+    <div class="section-header" style="margin-top:3rem;">
+      <h2>Python Projects</h2>
+      <span class="count">// 3 scripts</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Card 4: ETL Pipeline -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-badge badge-python">Python</span>
+          <div class="card-title-block">
+            <h3>ETL Pipeline — WMS to Snowflake</h3>
+            <p>End-to-end incremental pipeline: SQL Server extract → pandas transform (type normalization, MD5 row hashing) → Snowflake bulk load via write_pandas. Watermark-driven incremental runs.</p>
+          </div>
+        </div>
+        <div class="card-code" id="code4">
+          <div class="code-bar">
+            <div class="code-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <span class="file-name">etl_pipeline.py</span>
+          </div>
+          <div class="code-content">
+            <pre><code class="language-python">def transform_inventory(df: pd.DataFrame) -> pd.DataFrame:
+    df.columns = [c.upper() for c in df.columns]
+    df["TRANSACTION_DATE"] = pd.to_datetime(
+        df["TRANSACTION_DATE"], errors="coerce"
+    )
+    df["LOAD_TIMESTAMP"] = datetime.utcnow()
+
+    # Drop bad records, log count
+    before = len(df)
+    df = df.dropna(subset=["QUANTITY", "TRANSACTION_DATE"])
+    if (dropped := before - len(df)):
+        log.warning(f"Dropped {dropped} rows with null values")
+
+    # Signed quantity: shipments are negative
+    df["SIGNED_QUANTITY"] = df.apply(
+        lambda r: -abs(r["QUANTITY"])
+            if r["TRANSACTION_TYPE"] in (
+                "SHIPMENT", "ADJUSTMENT_NEGATIVE")
+            else abs(r["QUANTITY"]),
+        axis=1,
+    )
+
+    # Deterministic row hash for deduplication
+    hash_cols = ["TRANSACTION_ID","SKU_ID",
+                 "WAREHOUSE_ID","TRANSACTION_DATE","QUANTITY"]
+    df["ROW_HASH"] = (
+        df[hash_cols].astype(str)
+        .agg("|".join, axis=1)
+        .apply(lambda s: hashlib.md5(s.encode()).hexdigest())
+    )
+    return df</code></pre>
+          </div>
+          <button class="expand-btn" onclick="toggleCode('code4',this)" aria-expanded="false">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Show full file
+          </button>
+        </div>
+        <div class="card-footer">
+          <span class="tech-tag">pandas</span>
+          <span class="tech-tag">pyodbc</span>
+          <span class="tech-tag">snowflake-connector</span>
+          <span class="tech-tag">write_pandas</span>
+          <span class="tech-tag">Watermark / incremental</span>
+          <span class="tech-tag">MD5 row hash</span>
+          <span class="tech-tag">Logging</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Automated Reporting -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="card-badge badge-python">Python</span>
+          <div class="card-title-block">
+            <h3>Automated Report Delivery</h3>
+            <p>Data-driven system that executes scheduled SQL, formats styled Excel reports (alternating rows, freeze panes, auto-fit), and delivers via SMTP or SFTP. New reports added by config only.</p>
+          </div>
+        </div>
+        <div class="card-code" id="code5">
+          <div class="code-bar">
+            <div class="code-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <span class="file-name">automated_report_delivery.py</span>
+          </div>
+          <div class="code-content">
+            <pre><code class="language-python">def build_styled_excel(
+    df: pd.DataFrame, config: ReportConfig
+) -> bytes:
+    output = io.BytesIO()
+    with pd.ExcelWriter(output, engine="openpyxl") as writer:
+        df.to_excel(writer, sheet_name=config.sheet_name,
+                    index=False)
+        ws = writer.sheets[config.sheet_name]
+
+        # Dark navy header row
+        header_fill = PatternFill(fill_type="solid",
+                                  fgColor="1F3864")
+        header_font = Font(color="FFFFFF", bold=True,
+                           name="Calibri", size=11)
+        for cell in ws[1]:
+            cell.fill = header_fill
+            cell.font = header_font
+            cell.alignment = Alignment(
+                horizontal="center", wrap_text=True)
+
+        # Alternating row fill
+        light_fill = PatternFill(fill_type="solid",
+                                 fgColor="EEF2F7")
+        for row_idx, row in enumerate(
+            ws.iter_rows(min_row=2), start=2
+        ):
+            if row_idx % 2 == 0:
+                for cell in row:
+                    cell.fill = light_fill
+
+        # Auto-fit column widths, freeze panes, auto-filter
+        ws.freeze_panes = config.freeze_panes
+        ws.auto_filter.ref = ws.dimensions
+    output.seek(0)
+    return output.read()</code></pre>
+          </div>
+          <button class="expand-btn" onclick="toggleCode('code5',this)" aria-expanded="false">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Show full file
+          </button>
+        </div>
+        <div class="card-footer">
+          <span class="tech-tag">openpyxl</span>
+          <span class="tech-tag">SMTP / SFTP</span>
+          <span class="tech-tag">paramiko</span>
+          <span class="tech-tag">Data-driven config</span>
+          <span class="tech-tag">Dynamic date params</span>
+          <span class="tech-tag">Delivery audit log</span>
+        </div>
+      </div>
+
+      <!-- Card 6: Data Quality Framework (wide) -->
+      <div class="project-card card-wide">
+        <div class="card-header">
+          <span class="card-badge badge-python">Python</span>
+          <div class="card-title-block">
+            <h3>Data Quality Validation Framework</h3>
+            <p>Rule-based engine for validating DataFrames — null checks, uniqueness, range bounds, referential integrity, regex patterns, and data freshness. CRITICAL failures block downstream pipeline steps. Ships with a factory-function rule API so new checks are one-liners, and exports a structured CSV quality report.</p>
+          </div>
+        </div>
+        <div class="card-code" id="code6">
+          <div class="code-bar">
+            <div class="code-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <span class="file-name">data_quality_framework.py</span>
+          </div>
+          <div class="code-content">
+            <pre><code class="language-python"># Define a rule suite with one line per check
+rules = [
+    row_count_threshold(min_rows=1,     severity=Severity.CRITICAL),
+    not_null("transaction_id",          severity=Severity.CRITICAL),
+    is_unique("transaction_id",         severity=Severity.CRITICAL),
+    not_null("sku_id",                  severity=Severity.CRITICAL),
+    in_range("quantity", 0, 100_000,    severity=Severity.HIGH),
+    in_range("unit_cost", 0.01, 50_000, severity=Severity.MEDIUM),
+    referential_integrity(
+        "warehouse_id", VALID_WAREHOUSES, severity=Severity.HIGH),
+    referential_integrity(
+        "transaction_type", VALID_TXN_TYPES, severity=Severity.HIGH),
+    freshness("transaction_date", max_age_hours=12,
+              severity=Severity.HIGH),
+]
+
+validator = DataQualityValidator("WMS Inventory", rules)
+report    = validator.run(df)
+report.print_summary()
+
+# Block the pipeline if any CRITICAL check failed
+report.raise_on_critical()
+
+# ── Sample output ──────────────────────────────────────────
+# ✅ [CRITICAL ] not_null_transaction_id — All values present
+# ❌ [CRITICAL ] unique_transaction_id   — 2 duplicate row(s)
+# ❌ [HIGH     ] range_quantity          — 1 value(s) outside [0, 100000]
+# ❌ [HIGH     ] ref_int_warehouse_id    — 1 unexpected value(s): ['WH-99']
+# ✅ [HIGH     ] freshness_transaction_date — Latest: 2025-08-03 (2.1h ago)</code></pre>
+          </div>
+          <button class="expand-btn" onclick="toggleCode('code6',this)" aria-expanded="false">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Show full file
+          </button>
+        </div>
+        <div class="card-footer">
+          <span class="tech-tag">Factory-function rules</span>
+          <span class="tech-tag">Dataclass results</span>
+          <span class="tech-tag">Severity gating</span>
+          <span class="tech-tag">Pipeline blocking</span>
+          <span class="tech-tag">Freshness check</span>
+          <span class="tech-tag">Referential integrity</span>
+          <span class="tech-tag">CSV export</span>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid Python -->
+
+    <!-- ── Snowflake section ── -->
+    <div class="section-header" style="margin-top:3rem;">
+      <h2>Snowflake Ecosystem</h2>
+      <span class="count">// production patterns</span>
+    </div>
+
+    <div class="snowflake-card">
+      <div class="card-header">
+        <span class="card-badge badge-snowflake">Snowflake</span>
+        <div class="card-title-block">
+          <h3>Ecosystem Patterns &amp; Best Practices</h3>
+          <p>A reference file of production-grade Snowflake patterns used across pipeline and BI work — Time Travel, CDC with Streams &amp; Tasks, Materialized Views, clustering, PII masking, and stored procedures.</p>
+        </div>
+      </div>
+      <div class="sf-patterns">
+        <div class="sf-pattern">
+          <div class="sf-name">Streams + Tasks (CDC)</div>
+          <p>Incremental MERGE into analytics fact table using Snowflake Streams to capture insert, update, and delete events, triggered every 15 min via a Task.</p>
+        </div>
+        <div class="sf-pattern">
+          <div class="sf-name">Time Travel</div>
+          <p>Point-in-time recovery with <code style="font-family:JetBrains Mono,monospace;font-size:.78em;color:var(--teal)">AT (OFFSET =>)</code> and cross-time-period comparison to audit what changed between snapshots.</p>
+        </div>
+        <div class="sf-pattern">
+          <div class="sf-name">Materialized Views + Clustering</div>
+          <p>Pre-aggregated daily inventory summaries for BI query performance. Table clustering by date and warehouse eliminates full scans on date-filtered queries.</p>
+        </div>
+        <div class="sf-pattern">
+          <div class="sf-name">Dynamic Data Masking</div>
+          <p>Role-based PII masking on vendor contact fields using Snowflake masking policies — full value for authorized roles, redacted email domain for all others.</p>
+        </div>
+        <div class="sf-pattern">
+          <div class="sf-name">QUALIFY &amp; FLATTEN</div>
+          <p>Window-function filtering with <code style="font-family:JetBrains Mono,monospace;font-size:.78em;color:var(--teal)">QUALIFY</code> (avoids subquery overhead) and <code style="font-family:JetBrains Mono,monospace;font-size:.78em;color:var(--teal)">LATERAL FLATTEN</code> for semi-structured JSON order lines.</p>
+        </div>
+        <div class="sf-pattern">
+          <div class="sf-name">Stored Procedure (JS)</div>
+          <p>Parameterized monthly close procedure that refreshes staging aggregates and upserts into the final finance close table atomically via MERGE.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Certifications ── -->
+    <div class="section-header" style="margin-top:3rem;">
+      <h2>Certifications</h2>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-org">Microsoft</div>
+        <div class="cert-name">Power BI Data Analyst Associate</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-org">Amazon Web Services</div>
+        <div class="cert-name">AWS Certified Cloud Practitioner</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-org">Oracle</div>
+        <div class="cert-name">Cloud Platform Enterprise Analytics Specialist</div>
+      </div>
+    </div>
+
+  </div><!-- /wrap -->
+</section>
+
+<!-- ─────── FOOTER ─────── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span>Anil Kumar Nukala · Data Engineer &amp; BI Analyst · Davie, FL</span>
+    <nav class="footer-links">
+      <a href="https://github.com/anilnukala3197-sudo" target="_blank">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/anil-kumar-nukala/" target="_blank">LinkedIn ↗</a>
+      <a href="mailto:anilnukala3197@gmail.com">anilnukala3197@gmail.com</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// ── Syntax highlighting ──
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('pre code').forEach(el => hljs.highlightElement(el));
+});
+
+// ── Expand / collapse code panels ──
+function toggleCode(id, btn) {
+  const card = document.getElementById(id);
+  const isOpen = card.classList.toggle('expanded');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen);
+  btn.querySelector('svg + *')
+    ? null
+    : null;
+  btn.childNodes.forEach(n => {
+    if (n.nodeType === 3) {
+      n.textContent = isOpen ? ' Collapse' : ' Show full file';
+    }
+  });
+}
+</script>
